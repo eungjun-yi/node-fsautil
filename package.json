@@ -1,0 +1,43 @@
+{
+  "name": "fsautil",
+  "version": "0.1.2",
+  "author": {
+    "name": "Yi, EungJun"
+  },
+  "description": "Synchronous filesystem utilities",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/npcode/node-fsautil.git"
+  },
+  "keywords": [
+    "fs",
+    "fsautil",
+    "file",
+    "filesystem",
+    "fileutil",
+    "utility"
+  ],
+  "main": "./fsautil.js",
+  "dependencies": {
+    "underscore": ">=1.3.3"
+  },
+  "devDependencies": {
+    "underscore": ">=1.3.3"
+    "mocha": ">=1.0.x"
+  },
+  "noAnalyze": true,
+  "contributors": [
+    {
+      "name": "Yi, EungJun",
+      "email": "semtlenori@gmail.com"
+    }
+  ],
+  "bundleDependencies": [],
+  "license": "MIT",
+  "engine": {
+    "node": ">=0.6"
+  },
+  "scripts": {
+    "test": "sudo mocha -u tdd -R spec"
+  },
+}
