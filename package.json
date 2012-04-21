@@ -4,7 +4,7 @@
   "author": {
     "name": "Yi, EungJun"
   },
-  "description": "Synchronous filesystem utilities",
+  "description": "Asynchronous filesystem utilities",
   "repository": {
     "type": "git",
     "url": "git://github.com/npcode/node-fsautil.git"
