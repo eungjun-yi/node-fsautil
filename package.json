@@ -41,5 +41,5 @@
   },
   "scripts": {
     "test": "sudo mocha -u tdd -R spec"
-  },
+  }
 }
