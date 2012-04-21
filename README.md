@@ -6,6 +6,8 @@ Filesystem Utilities
 Requirements
 ------------
 
+* [async](https://github.com/caolan/async)
+* [underscore](http://underscorejs.org/)
 * [mocha](http://visionmedia.github.com/mocha/) (if you want to run tests)
 
 API
