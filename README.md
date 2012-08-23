@@ -1,3 +1,4 @@
+[![build status](https://secure.travis-ci.org/npcode/node-fsautil.png)](http://travis-ci.org/npcode/node-fsautil)
 Filesystem Utilities
 ====================
 
