@@ -6,6 +6,8 @@ var util = require('util');
 
 pth.sep = pth.sep || (process.platform == 'win32' ? '\\' : '/');
 
+// TODO: EMFILE 3452 Too many open files for this process
+
 var rm_rf = function(path, callback) {
     fs.lstat(path, function(err, stat) {
         if (err) {
@@ -38,7 +40,7 @@ var _mkdir_p = function(path_segments, callback) {
     var base = '';
     async.forEachSeries(path_segments, function(segment, cb) {
         base = pth.join(base, segment);
-        pth.exists(base, function(exists) {
+        fs.exists(base, function(exists) {
             if (exists) {
                 cb();
             } else {
@@ -83,7 +85,7 @@ var cp_r = function(src, dst, callback) {
 }
 
 var ln_sf = function(src, path, callback) {
-    pth.exists(path, function(exists) {
+    fs.exists(path, function(exists) {
         if (exists) {
             fs.stat(path, function(err, stat) {
                 if (stat.isDirectory()) {

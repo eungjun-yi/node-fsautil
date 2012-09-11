@@ -5,19 +5,19 @@ var path = require('path');
 
 suite('fsautil.rm_rf', function() {
     var cleanup = function() {
-        if (path.existsSync('a')) {
+        if (fs.existsSync('a')) {
             fs.rmdirSync('a');
         }
-        if (path.existsSync('a/b')) {
+        if (fs.existsSync('a/b')) {
             fs.unlinkSync('a/b');
         }
-        if (path.existsSync('b')) {
+        if (fs.existsSync('b')) {
             fs.rmdirSync('b');
         }
-        if (path.existsSync('c')) {
+        if (fs.existsSync('c')) {
             fs.unlinkSync('c');
         }
-        if (path.existsSync('d')) {
+        if (fs.existsSync('d')) {
             fs.unlinkSync('d');
         }
     }
@@ -32,8 +32,8 @@ suite('fsautil.rm_rf', function() {
         fs.writeFileSync('a/b', 'hello');
         fsautil.rm_rf('a', function(err) {
             if (err) throw err;
-            assert.ok(!path.existsSync('a'));
-            assert.ok(!path.existsSync('a/b'));
+            assert.ok(!fs.existsSync('a'));
+            assert.ok(!fs.existsSync('a/b'));
             done();
         });
     });
@@ -56,7 +56,7 @@ suite('fsautil.rm_rf', function() {
 
 suite('fsautil.mkdir_p', function() {
     setup(function(done) {
-        if (path.existsSync('a/b')) {
+        if (fs.existsSync('a/b')) {
             fs.rmdirSync('a/b');
             fs.rmdirSync('a');
         }
@@ -66,14 +66,14 @@ suite('fsautil.mkdir_p', function() {
     test('Create a directory and all its parent directories.', function(done) {
         fsautil.mkdir_p('a/b', function(err) {
             if (err) throw err;
-            assert.ok(path.existsSync('a'));
-            assert.ok(path.existsSync('a/b'));
+            assert.ok(fs.existsSync('a'));
+            assert.ok(fs.existsSync('a/b'));
             done();
         });
     });
 
     teardown(function(done) {
-        if (path.existsSync('a/b')) {
+        if (fs.existsSync('a/b')) {
             fs.rmdirSync('a/b');
             fs.rmdirSync('a');
         }
@@ -83,7 +83,7 @@ suite('fsautil.mkdir_p', function() {
 
 suite('fsautil.fwrite_p', function() {
     setup(function(done) {
-        if (path.existsSync('a/b')) {
+        if (fs.existsSync('a/b')) {
             fs.unlinkSync('a/b');
             fs.rmdirSync('a');
         }
@@ -99,7 +99,7 @@ suite('fsautil.fwrite_p', function() {
     });
 
     teardown(function(done) {
-        if (path.existsSync('a/b')) {
+        if (fs.existsSync('a/b')) {
             fs.unlinkSync('a/b');
             fs.rmdirSync('a');
         }
